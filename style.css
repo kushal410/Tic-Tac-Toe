@@ -1,0 +1,101 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --accent-x: #38bdf8; /* Sky Blue */
+    --accent-o: #fb7185; /* Rose Red */
+    --cell-size: 100px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+#status {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* The Grid */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, var(--cell-size));
+    grid-template-rows: repeat(3, var(--cell-size));
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.cell {
+    background: #334155;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.cell:hover {
+    background: #475569;
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+/* Colors for X and O */
+.cell.x { color: var(--accent-x); }
+.cell.o { color: var(--accent-o); }
+
+/* Winning highlight */
+.cell.winner {
+    background: #10b981 !important; /* Emerald Green */
+    color: white;
+}
+
+/* Reset Button */
+#reset-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background: var(--accent-x);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+#reset-btn:hover {
+    opacity: 0.9;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 400px) {
+    :root {
+        --cell-size: 80px;
+    }
+}
